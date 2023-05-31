@@ -21,13 +21,12 @@ namespace EventHandlerPrac
         {
             Button btn = (Button)sender;
 
-            if (btn == button1)
+            if(btn == button1)
             {
                 button1.Enabled = false;
                 button2.Enabled = true;
-
-            }
-            else if (btn == button2)
+                
+            }else if(btn == button2)
             {
                 button1.Enabled = true;
                 button2.Enabled = false;
@@ -39,6 +38,28 @@ namespace EventHandlerPrac
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             MessageBox.Show(e.CloseReason.ToString());
+        }
+
+        private int time = 0;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            time++;
+            label1.Text = time + "초";
+            textBox1.Text = time + "초";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = !timer1.Enabled;
+            if(timer1.Enabled )
+            {
+                button3.Text = "타이머 끄기";
+            }
+            else
+            {
+                button3.Text = "타이머 켜기";
+            }
         }
     }
 }
